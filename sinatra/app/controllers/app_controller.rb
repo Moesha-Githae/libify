@@ -1,0 +1,11 @@
+class AppController < Sinatra::Base
+    set :session =>true
+
+    use Rack::Session::Cookie,
+    expire_after: 3600
+
+    get "/" do
+        "<h1>Welcome to REST APIs CLASS</h1>"
+    end
+
+end

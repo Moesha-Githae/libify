@@ -1,4 +1,4 @@
-class review < ActiveRecord::Base
+class Review < ActiveRecord::Base
     belongs_to :User
-belongs_to:book
+    belongs_to:book
 end
