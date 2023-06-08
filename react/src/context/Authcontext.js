@@ -27,6 +27,7 @@ export function AuthProvider({ children }) {
         } else {
           Swal.fire('Error', 'Something went wrong', 'error');
         }
+        nav("/home")
       });
   };
 
@@ -47,6 +48,7 @@ export function AuthProvider({ children }) {
         } else {
           Swal.fire('Error', 'Something went wrong', 'error');
         }
+        nav("/home")
       });
   };
 

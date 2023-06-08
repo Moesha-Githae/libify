@@ -7,7 +7,7 @@ export default function Layout() {
     <div>
         <Navbar />
 
-      <div className='container pt-10' style={{"min-height":"80vh"}} >
+      <div className='container p-10' style={{"min-height":"90vh"}} >
         <Outlet />
       </div>
           
