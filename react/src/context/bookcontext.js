@@ -30,7 +30,7 @@ export function BookProvider({children})
         }
         else if(response.success)
         { 
-            nav("/")
+            nav("/books")
             Swal.fire(
                 'Success',
                 response.success,
@@ -57,13 +57,13 @@ export function BookProvider({children})
     .then((response)=>{
       setonchange(!onchange)
         console.log(response)
-        nav("/")
+        nav("/books")
         Swal.fire(
           'Success',
           "Delete success",
           'success'
         )
-        nav("/")
+        nav("/books")
 
     })
 

@@ -14,12 +14,12 @@ export default function Register()
     const  handleSubmit = (e) =>{
         e.preventDefault()
     
-      register (username,email,  password)
+      register (username, email,  password)
     }
   return (
     <div className='container row my-7'>
         
-        <form className='col-sm-6 bg-light rounded p-4 mt-5 border' onSubmit={handleSubmit}>
+        <form className='col-sm-6 bg-light rounded p-4 mt-5 border' >
             <h3>Register</h3>
             <div className="form-group mt-3">
                 <label>Username</label>
@@ -33,7 +33,7 @@ export default function Register()
                 <label>Password</label>
                 <input type="password" onChange={(e)=> setPassword(e.target.value) } className="form-control" placeholder="Password" />
             </div>
-            <button type="submit" className="mt-3 btn btn-primary">Register</button>
+            <button type="submit" onClick={handleSubmit} className="mt-3 btn btn-primary">Register</button>
         </form>
 
         <div className='col-sm-6'></div>

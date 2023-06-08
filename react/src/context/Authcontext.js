@@ -18,16 +18,20 @@ export function AuthProvider({ children }) {
     })
       .then((res) => res.json())
       .then((response) => {
+
+        console.log(response)
+
         if (response.error) {
           Swal.fire('Error', response.error, 'error');
         } else if (response.success) {
-          nav('/');
+          nav('/home');
           Swal.fire('Success', response.success, 'success');
           setOnChange(!onChange);
         } else {
           Swal.fire('Error', 'Something went wrong', 'error');
         }
-        nav("/home")
+        
+        
       });
   };
 
@@ -48,7 +52,7 @@ export function AuthProvider({ children }) {
         } else {
           Swal.fire('Error', 'Something went wrong', 'error');
         }
-        nav("/home")
+        
       });
   };
 

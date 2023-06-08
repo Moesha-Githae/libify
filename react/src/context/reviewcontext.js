@@ -30,7 +30,7 @@ export function ReviewProvider({children})
         }
         else if(response.success)
         { 
-            nav("/")
+            nav("/reviews")
             Swal.fire(
                 'Success',
                 response.success,
@@ -63,7 +63,7 @@ export function ReviewProvider({children})
           "Delete success",
           'success'
         )
-        nav("/")
+        nav("/reviews")
 
     })
 

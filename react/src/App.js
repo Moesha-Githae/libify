@@ -19,11 +19,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />} >
           <Route path='/home' element={<Home/>} />
-          <Route path='login' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register/>}/>
-          <Route path='books' element={<AddBook />} />
-          <Route path='reviews'element={<AddReview/>}/>
-          <Route path='profile' element={<Profile />} />
+          <Route path='/books' element={<AddBook />} />
+          <Route path='/reviews'element={<AddReview/>}/>
+          <Route path='/profile' element={<Profile />} />
         </Route>
       </Routes>
       </ReviewProvider>

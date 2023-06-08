@@ -5,9 +5,13 @@ import { Outlet } from 'react-router-dom'
 export default function Layout() {
   return (
     <div>
-        <Navbar />
+      <div className='landing' id='Home' style={{ height: '90px' }}>
+          <div className='navbar' id='nav'>
+            <Navbar />
+          </div>
+          </div>
 
-      <div className='container p-10' style={{"min-height":"90vh"}} >
+      <div className='container p-10 m-20' style={{"min-height":"90vh"}} >
         <Outlet />
       </div>
           
