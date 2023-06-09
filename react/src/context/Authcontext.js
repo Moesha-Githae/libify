@@ -11,7 +11,7 @@ export function AuthProvider({ children }) {
 
   // Login
   const login = (username, password) => {
-    fetch('/auth/login', {
+    fetch('https://libify.onrender.com/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
 
   // Register
   const register = (username, email, password) => {
-    fetch('/users/adduser', {
+    fetch('https://libify.onrender.com/users/adduser', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password })
@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
 
   // Logout
   const logout = () => {
-    fetch('/auth/logout', {
+    fetch('https://libify.onrender.com/auth/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -74,7 +74,7 @@ export function AuthProvider({ children }) {
   // Fetch current user
   
   useEffect(() => {
-    fetch('/current_user', {
+    fetch('https://libify.onrender.com/current_user', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     })

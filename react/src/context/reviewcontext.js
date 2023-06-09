@@ -12,7 +12,7 @@ export function ReviewProvider({children})
 
    // Addreview
    const AddReview = (book_id, Review) =>{
-    fetch("/reviews/addreview", {
+    fetch("https://libify.onrender.com/reviews/addreview", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({book_id:book_id, Review })
@@ -50,7 +50,7 @@ export function ReviewProvider({children})
 }
   // Delete review
   const deleteReview = (id) =>{
-    fetch(`/reviews/delete/${id}`, {
+    fetch(`https://libify.onrender.com/reviews/delete/${id}`, {
         method: "DELETE",
     })
     .then((res)=>res.json())
@@ -71,7 +71,7 @@ export function ReviewProvider({children})
 
   // Fetch posts
   useEffect(()=>{
-    fetch("/reviews", {
+    fetch("https://libify.onrender.com/reviews", {
         method: "GET",
         headers: {"Content-Type":"application/json"}
     })
