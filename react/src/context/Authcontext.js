@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
         if (response.error) {
           Swal.fire('Error', response.error, 'error');
         } else if (response.success) {
-          nav('/home');
+          nav('/');
           Swal.fire('Success', response.success, 'success');
           setOnChange(!onChange);
         } else {
@@ -72,6 +72,7 @@ export function AuthProvider({ children }) {
   };
 
   // Fetch current user
+  
   useEffect(() => {
     fetch('/current_user', {
       method: 'GET',
@@ -79,8 +80,8 @@ export function AuthProvider({ children }) {
     })
       .then((res) => res.json())
       .then((response) => {
-        if (response.currentUser) {
-          setCurrentUser(response.currentUser);
+        if (response.user) {
+          setCurrentUser(response.user);
         }
       });
   }, [onChange]);

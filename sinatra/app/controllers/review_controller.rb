@@ -1,24 +1,17 @@
 class ReviewController < AppController
         get "/reviews" do 
             reviews = Review.all
-            reviews.to_json(include::user)
+            reviews.to_json(include: :user)
         end
         #add review
         post "/reviews/addreview" do
             review=params[:Review]
-            user_id=params[:user_id]
-            book_id=params[:book_id]
+            user_id=session[:user_id]
+            bookid=params[:book_id]
 
-            if(user_id.present? && book_id.present? && review.present?)
-                check_user = User.exists?(id: user_id)
-           
-            if check_user===false
-                status 406
-                message = {:error=> "User trying to add post does not exist!"}
-                message.to_json
-            
-            else
-                review = Review.create(Review: review, book_id: book_id, user_id: user_id)
+            if( book_id.present? && review.present?)
+               
+                review = Review.create(Review: review, book_id: bookid, user_id: user_id)
                 if review
                     message = {:success=> "Review created successfully"}
                     message.to_json
@@ -28,13 +21,13 @@ class ReviewController < AppController
                     message.to_json
                 end
 
+            
+            else
+                status 406
+                message = {:error=> "All field are required"}
+                message.to_json
             end
-        else
-            status 406
-            message = {:error=> "All field are required"}
-            message.to_json
         end
-    end
 
 
 

@@ -4,23 +4,21 @@ import { BookContext } from "../context/bookcontext";
 
 export default function AddBook() {
   const { current_user } = useContext(AuthContext);
-  const { books, addBook, deleteBook } = useContext(BookContext);
+  const { books, AddBook, deleteBook } = useContext(BookContext);
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [imageURL, setImageURL] = useState("");
+  const [imageurl, setImageurl] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addBook(name, description, imageURL);
+    AddBook(name, description, imageurl);
     setName("");
     setDescription("");
-    setImageURL("");
+    setImageurl("");
   };
 
-  const handleDelete = (bookId) => {
-    deleteBook(bookId);
-  };
+  
 
  
   return (
@@ -58,8 +56,8 @@ export default function AddBook() {
                   <label>Image URL</label>
                   <input
                     type="text"
-                    value={imageURL}
-                    onChange={(e) => setImageURL(e.target.value)}
+                    value={imageurl}
+                    onChange={(e) => setImageurl(e.target.value)}
                     className="form-control"
                     placeholder="Enter Image URL"
                   />
@@ -73,24 +71,25 @@ export default function AddBook() {
           </div>
 
           <h3>All Books</h3>
-          {books.length > 0 ? (
+         { (
             <ul>
-              {books.map((book) => (
+              
+              {books && books.map((book) => (
                 <li key={book.id}>
-                  <p>Name: {book.name}</p>
-                  <p>Description: {book.description}</p>
-                  <div className="col-md-6">
-              <img src={imageURL} className="img-fluid" alt="Book" />
-            </div>
-                  <button onClick={() => handleDelete(book.id)}>
-                    Delete
-                  </button>
+                      <div class="card m-10" style={{width: "18rem"}}>
+      <img src={book.imageurl} className="img-fluid" alt="Book" />
+      <div class="card-body">
+        <h5 class="card-title">name : {book.name}</h5>
+        <p class="card-text">description : {book.description}</p>
+        <button onClick={() => deleteBook(book.id)}>
+          Delete
+        </button>
+      </div>
+    </div>
                 </li>
               ))}
             </ul>
-          ) : (
-            <p>No books available</p>
-          )}
+          ) }
         </>
       ) : (
         <div>Please login to add a book</div>

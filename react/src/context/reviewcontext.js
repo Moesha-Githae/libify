@@ -11,11 +11,11 @@ export function ReviewProvider({children})
   const [reviews, setreviews] = useState()
 
    // Addreview
-   const AddReview = (bookid, review, userid) =>{
+   const AddReview = (book_id, Review) =>{
     fetch("/reviews/addreview", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({book_id:bookid, review: review, user_id:userid})
+        body: JSON.stringify({book_id:book_id, Review })
     })
     .then((res)=>res.json())
     .then((response)=>{

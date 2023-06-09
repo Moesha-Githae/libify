@@ -10,7 +10,7 @@ export default function Login()
     const [password, setPassword] = useState()
 
 
-    const  handleSubmit = (e) =>{
+    const  handleLogin = (e) =>{
         e.preventDefault()
     
        login(username, password)
@@ -18,7 +18,7 @@ export default function Login()
   return (
     <div className='container row my-10'>
         
-        <form className='col-sm-6 bg-light rounded p-4 mt-5 border' onSubmit={handleSubmit}>
+        <form className='col-sm-6 bg-light rounded p-4 mt-5 border' onSubmit={handleLogin}>
             <h3>Login</h3>
             <div className="form-group mt-3">
                 <label>Username</label>
@@ -31,8 +31,7 @@ export default function Login()
             <button type="submit"   className="mt-3 btn btn-primary">Login</button>
         </form>
 <div>
-    <p>Dont have an acount?<Link to="/register"></Link></p>
-</div>
+<p>Don't have an account? <Link to="/register">Register</Link></p></div>
         <div className='col-sm-6'></div>
     </div>
   )

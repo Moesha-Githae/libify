@@ -4,14 +4,14 @@ import { ReviewContext } from "../context/reviewcontext";
 
 export default function AddReview() {
   const { current_user } = useContext(AuthContext);
-  const { reviews, addReview, deleteReview } = useContext(ReviewContext);
+  const { reviews, AddReview, deleteReview } = useContext(ReviewContext);
 
-  const [bookId, setBookId] = useState("");
-  const [review, setReview] = useState("");
+  const [book_id, setBookId] = useState("");
+  const [Review, setReview] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addReview(bookId, review, current_user.id);
+    AddReview(book_id, Review);
     setBookId("");
     setReview("");
   };
@@ -34,7 +34,7 @@ export default function AddReview() {
                   <label>Name</label>
                   <input
                     type="text"
-                    value={bookId}
+                    value={book_id}
                     onChange={(e) => setBookId(e.target.value)}
                     className="form-control"
                     placeholder="Enter book ID"
@@ -45,7 +45,7 @@ export default function AddReview() {
                   <label>Description</label>
                   <textarea
                     type="text"
-                    value={review}
+                    value={Review}
                     onChange={(e) => setReview(e.target.value)}
                     className="form-control"
                     placeholder="Enter review"
@@ -60,21 +60,23 @@ export default function AddReview() {
           </div>
 
           <h3>All Reviews</h3>
-          {reviews.length > 0 ? (
+          {(
             <ul>
-              {reviews.map((review) => (
+              {reviews && reviews.map((review) => (
                 <li key={review.id}>
-                  <p>Book ID: {review.bookId}</p>
-                  <p>Content: {review.content}</p>
-                  <button onClick={() => handleDelete(review.id)}>
+                  <div class="card m-10" style={{width: "18rem"}}>
+      <div class="card-body">
+        <h5 class="card-title">Book ID: {review.book_id}</h5>
+        <p class="card-text">Content: {review.Review}</p>
+        <button onClick={() => handleDelete(review.id)}>
                     Delete
                   </button>
+      </div>
+    </div>
                 </li>
               ))}
             </ul>
-          ) : (
-            <p>No reviews available</p>
-          )}
+          ) }
         </>
       ) : (
         <div>Please login to add a review</div>

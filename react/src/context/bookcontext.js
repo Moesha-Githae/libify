@@ -50,7 +50,7 @@ export function BookProvider({children})
 }
   // Delete review
   const deleteBook = (id) =>{
-    fetch(`/books/delete/${id}`, {
+    fetch(`/book/delete/${id}`, {
         method: "DELETE",
     })
     .then((res)=>res.json())

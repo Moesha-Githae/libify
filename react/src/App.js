@@ -18,7 +18,7 @@ function App() {
         <ReviewProvider>
       <Routes>
         <Route path='/' element={<Layout />} >
-          <Route path='/home' element={<Home/>} />
+          <Route index element={<Home/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register/>}/>
           <Route path='/books' element={<AddBook />} />

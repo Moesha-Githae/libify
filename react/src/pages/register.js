@@ -11,7 +11,7 @@ export default function Register()
 
 
 
-    const  handleSubmit = (e) =>{
+    const  handleRegister = (e) =>{
         e.preventDefault()
     
       register (username, email,  password)
@@ -33,7 +33,7 @@ export default function Register()
                 <label>Password</label>
                 <input type="password" onChange={(e)=> setPassword(e.target.value) } className="form-control" placeholder="Password" />
             </div>
-            <button type="submit" onClick={handleSubmit} className="mt-3 btn btn-primary">Register</button>
+            <button type="submit" onClick={handleRegister} className="mt-3 btn btn-primary">Register</button>
         </form>
 
         <div className='col-sm-6'></div>
