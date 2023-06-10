@@ -18,7 +18,7 @@ function NavBar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            {current_user ?
+            {current_user && current_user ?
               <>
                 <li className="nav-item">
                   <Link to="/" className="nav-link" >Home</Link>

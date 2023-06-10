@@ -12,7 +12,7 @@ export function BookProvider({children})
 
    // Addbook
    const AddBook = (name, description, imageurl) =>{
-    fetch("https://libify.onrender.com/books/addbook", {
+    fetch("https://libify-l.onrender.com/books/addbook", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({name: name, description: description, imageurl: imageurl})
@@ -50,7 +50,7 @@ export function BookProvider({children})
 }
   // Delete review
   const deleteBook = (id) =>{
-    fetch(`https://libify.onrender.com/book/delete/${id}`, {
+    fetch(`https://libify-l.onrender.com/book/delete/${id}`, {
         method: "DELETE",
     })
     .then((res)=>res.json())
@@ -71,7 +71,7 @@ export function BookProvider({children})
 
   // Fetch books
   useEffect(()=>{
-    fetch("https://libify.onrender.com/books", {
+    fetch("https://libify-l.onrender.com/books", {
         method: "GET",
         headers: {"Content-Type":"application/json"}
     })
